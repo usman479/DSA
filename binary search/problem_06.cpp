@@ -2,7 +2,7 @@
 using namespace std;
 
 // FIND SQUARE ROOT OF A NUMBER
-// 💡 if you want to store square = m*m use data type long long int //
+// 💡 if you want to store square = m*m use data type "long long int" //
 
 int square_root(int n){
     int start = 0;
@@ -25,9 +25,24 @@ int square_root(int n){
    return ans;
 }
 
+double morePrecise(int n,int precision,int temp){
+    float factor = 1;
+    double ans = temp;
+    for(int i=0; i<precision; i++){
+        factor = factor/10;
+        cout << temp << endl;
+        for(double j=ans; (j*j)<n; j=j+factor){
+            ans = j;
+        }
+    }
+    return ans;
+}
+
 int main(){
 
-  cout << square_root(65) << endl;
+  int temp =  square_root(37);
+
+  cout << morePrecise(37,3,temp) << endl;
 
   return 0;
 }
